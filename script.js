@@ -1,65 +1,123 @@
-let swiper = null;
 
-const getDimension = () => {
-  if (window.innerWidth < 768) {
-    return 'mobile';
-  }
-  if (window.innerWidth < 1280) {
-    return 'tablet';
-  }
-  return 'desktop';
-}
+let dialog = document.querySelector("dialog");
+let modalOverlay = document.querySelector('.modal__overlay')
+let modalClose = document.querySelector('.modal__close')
 
-function initSlider() {
-  if (!swiper) {
-    swiper = new Swiper(".swiper", {
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-        sliderCardPerView: "auto",
-      },
+let btnArray = document.querySelectorAll('[type="button"]');
+btnArray.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      dialog.show();
+      modalOverlay.style.transform = "scale(1)";
     });
-  }
-}
+});
 
-const seeMore = document.querySelector(".see-more");
-const sliderCard = document.querySelectorAll(".profit-card-item");
-let visabilityFlag = false;
-
-const toggleVisability = (initial) => {
-  const startIndex = getDimension() !== 'desktop' ? 2 : 3;
-
-  if(!initial) {
-    seeMore.classList[!visabilityFlag ? 'add' : 'remove']("see-more_open")
-
-    visabilityFlag = !visabilityFlag;
-  }
-
-  sliderCard.forEach((el, i) => {
-    if (i  >= startIndex) {
-      el.classList[!visabilityFlag ? 'add' : 'remove']("profit-card-item_hidden");
-    }
-  })  
-
-}
-
-window.addEventListener('resize', () => {
-  if (getDimension() !== 'mobile') {
-    if (swiper) {
-      swiper.disable();
-    }
-    swiper = null;
-  } else if (!swiper) {
-    initSlider();
-  }
+modalClose.addEventListener('click', function() {
+    dialog.close();
+    modalOverlay.style.transform = "scale(0)";
 })
 
-window.addEventListener("DOMContentLoaded", function () {
-  toggleVisability(true)
+modalOverlay.addEventListener('click', function() {
+  dialog.close();
+  modalOverlay.style.transform = "scale(0)";
+})
 
-  if (getDimension() === 'mobile') {
-    initSlider();
+
+let menuBtn = document.querySelector('.navigation__menu');
+let submenu = document.querySelector('menu');
+let closeBtn = document.querySelector('.close')
+let overlay = document.querySelector('.overlay')
+let elMenu = document.querySelector('.navigation__menu-3')
+let menuShow = false;
+
+menuBtn.addEventListener('click', function() {
+  if (menuShow == false) { 
+    submenu.style.transform = "scale(1)";
+    overlay.style.transform =" scale(1)";
+    menuShow = true;
+    elMenu.classList.add('navigation__menu-3-active');
+} else {
+  submenu.style.transform = "scale(0)";
+  menuShow = false;
+  elMenu.classList.remove('navigation__menu-3-active');
+}
+});
+
+submenu.addEventListener("click",function(e) {
+  if((e.target) && (e.target.nodeName == "LI" || e.target.nodeName == "A")) {
+    submenu.style.transform = "scale(0)";
+    menuShow = false;
+    elMenu.classList.remove('navigation__menu-3-active');
   }
 });
 
-seeMore.addEventListener("click", () => toggleVisability());
+closeBtn.addEventListener('click', function() {
+    submenu.style.transform = "scale(0)";
+    menuShow = false;
+    elMenu.classList.remove('navigation__menu-3-active');
+});
+overlay.addEventListener('click', function() {
+  submenu.style.transform = "scale(0)";
+  menuShow = false;
+  elMenu.classList.remove('navigation__menu-3-active');
+});
+
+
+document.addEventListener('keydown', function (evt) {
+    if (evt.keyCode === 27) {
+        submenu.style.transform = "scale(0)";
+        menuShow = false;
+        dialog.close();
+        modalOverlay.style.transform = "scale(0)";
+        elMenu.classList.remove('navigation__menu-3-active');
+    }});
+
+    let upSwiper = null;
+    let downSwiper = null;
+
+    function upSliderStart() {
+       if (!upSwiper) {
+        upSwiper = new Swiper('.swiper', {
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            sliderCardPerView: 'auto',
+          } 
+        });
+       } else {
+        upSwiper.disable();
+        upSwiper = null;
+       }
+    }
+
+    function downSliderStart() {
+      if (!downSwiper) {
+        downSwiper = new Swiper('.swiper-2', {
+         pagination: {
+           el: '.swiper-pagination',
+           clickable: true,
+           sliderCardPerView: 'auto',
+         } 
+       });
+      } else {
+        downSwiper.disable();
+        downSwiper = null;
+      }
+   }
+
+    window.addEventListener ('DOMContentLoaded', function() {
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        upSliderStart();
+        downSliderStart();
+      } else if ((window.matchMedia("(max-width: 1280px)").matches)) {
+        downSliderStart();
+        
+        upSwiper = null;
+      } else {
+        
+        upSwiper = null;
+        
+        downSwiper = null;
+      }
+    });
+
+

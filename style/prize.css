@@ -1,0 +1,86 @@
+.prize {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(240, 213, 119);
+    height: 90%;
+    border-radius: 10px;
+    border: 1px solid white;
+    margin: 15px;
+}
+.prize__section {
+    background-color: rgb(240, 213, 119);
+    padding: 1px;
+}
+.prize__gold {
+    max-width: 359px;
+    width: 20%;
+}
+.prize__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    
+}
+.prize__const {
+   font-size: 12px;
+   font-weight: 700;
+   color: rgb(159, 159, 159);
+}
+.prize__text {
+   font-size: 12px;
+   font-weight: 700;
+   color: rgb(42, 35, 103);
+   text-align: center;
+   width: 212px;
+}
+.swiper-2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 30px;
+}
+.swiper__wrapper {
+    width: 100%;
+}
+.prize__img {
+    width: 90%;
+    max-width: 430px;
+}
+.swiper-2 .swiper-pagination-bullet {
+    background-color: rgb(221, 221, 221) !important;
+    opacity: 1;
+    z-index: 0;
+}
+.swiper-2 .swiper-pagination-bullet-active {
+    background-color: rgb(107, 90, 249) !important;
+}
+.swiper-pagination {
+    z-index: 1 !important;
+}
+
+@media (min-width:1280px) {
+    .prize {
+        flex-direction: row;
+
+    }
+    .prize__card {
+        width: 231px;
+    }
+    .swiper-slide {
+        width: 231px !important;
+    }
+    .swiper-2 .swiper-wrapper {
+        width: 100%;
+        justify-content: center !important;
+        gap: 95px !important;
+
+    }
+    .prize__gold {
+        width: 100%;
+        margin-left: 15px;
+        transform: translateY(11px);
+    }
+}

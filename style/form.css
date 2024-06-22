@@ -1,0 +1,216 @@
+.section__background {
+    background-color: rgb(244, 248, 255);
+    border-radius: 20px;
+    padding: 1px;
+    height: 983px;
+    max-width: 1160px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+.section__container-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 40px;
+
+}
+.section__title {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+.section__text {
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.form {
+    background-color:rgb(107, 90, 249);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 486px;
+    max-width: 472px;
+    margin: 0 auto;
+    gap: 25px;
+    padding-top: 30px;
+    width: 95%;
+    position: relative;
+}
+.form__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    width: 260px;
+}
+.form__text {
+    font-size: 12px;
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    width: 280px;
+}
+.form__btn {
+    height: 60px;
+    background-color: white;
+    color:rgb(107, 90, 249);
+    border-radius: 5px;
+    border: 0;
+    font-size: 14px;
+    font-weight: 700;
+    width: 70%;
+}
+.form__checkbox {
+    display: flex;
+    padding-left: 20px;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    background-color: rgb(0, 0, 0);
+    border: 0;
+}
+.form__input {
+    width: 70%;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+    background-color: rgb(107, 90, 249);
+    outline: none;
+    color: white;
+    transition: border 0.4s ease-in-out;
+    height: 40px;
+}
+.form__input:focus{
+    border: 2px solid rgba(255, 255, 255, 0.4);
+}
+.form__input::placeholder {
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 5px;
+    padding: 10px;
+}
+.form__label {
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+    display: block;
+}
+.section {
+
+    margin-top: 100px;
+
+}
+.form__picture-hand {
+    position: absolute;
+    width: 221px;
+    top: 85%;
+    left: 0;
+}
+.form__picture-circle {
+    position: absolute;
+    width: 42px;
+    top: 70%;
+    left: 10%;
+
+}
+.form__picture-cube {
+    position: absolute;
+    width: 119px;
+    top: -5%;
+    left: -1%;
+}
+.form__picture-cube2 {
+    position: absolute;
+    width: 91px;
+    left: 75%;
+    top: 81%;
+    z-index: 1;
+}
+@media (min-width:768px) {
+.form__picture-hand {
+    top: 78%;    
+    width: 335px;
+
+}
+.form__picture-circle {
+    position: absolute;
+    width: 42px;
+    left: -20%;
+}
+.form__picture-cube {
+    position: absolute;
+    width: 119px;
+
+}
+.form__picture-cube2 {
+    position: absolute;
+    width: 91px;
+
+}
+}
+@media(min-width: 1280px) {
+    .section__background {
+        height: 738px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding-top: 40px;
+    }
+    .section__title {
+        width: 205px;
+        text-align: start;
+        font-size: 36px;
+        font-weight: 800;
+    }
+    .section__text {
+        width: 450px;
+        text-align: start;
+        font-size: 18px;
+        font-weight: 600;
+    }
+    .section__container__text{
+        width: auto;
+        align-items: flex-start;
+        margin: 0;
+    }
+    .form {
+        margin: 0;
+        width: 472px;
+    }
+    .section {
+        height: 1140px;
+    }
+    .form__picture-hand {
+        top: 70%;
+        width: 430px;
+
+    }
+    .form__picture-circle {
+        position: absolute;
+        width: 58px;
+        top: 100%;
+    }
+    .form__picture-cube {
+        position: absolute;
+        width: 146px;
+        top: -10%;
+        left: 30%;
+    }
+    .form__picture-cube2 {
+        position: absolute;
+        width: 165px;
+        top: 90%;
+        left: 90%;
+
+    }
+    
+}
